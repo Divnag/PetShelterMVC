@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PetMVC.Models.PetModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<p>
+    <button type="button" class="btn">  @Html.ActionLink("Create New", "Create")</button>
+
+</p>
+@*<table class="table">*@
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PetName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PetName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    <button type="button">    @Html.ActionLink("Edit", "Edit", new { id = item.PetID }) |</button>
+                    <button type="button">
+                        @Html.ActionLink("Details", "Details", new { id = item.PetID }) ||
+                    </button>
+                    <button type="button">    @Html.ActionLink("Delete", "Delete", new { id = item.PetID })|</button>
+                </td>
+            </tr>
+        }
+
+    </table>
